@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "Anki Online Dictionary Helper",
+    "version": "0.1",
+    "description": "A chrome extension to show online dictionary content (with anki support)",
+    "icons": {"16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png"},
+    "browser_action": {
+        "default_icon": {"19": "img/icon19.png", "38": "img/icon38.png"},
+        "default_popup": "bg/options.html"
+    },
+    "author": "Zhenyu Huang",
+    "background": {"page": "bg/background.html"},
+    "content_scripts": [{
+        "matches": ["*://*/*", "file://*/*"],
+        "js": [
+            "fg/js/popup.js",
+            "fg/js/range.js",
+            "fg/js/text.js",
+            "fg/js/frontend.js"
+        ],
+        "css": ["fg/css/client.css"]
+    }],
+    "minimum_chrome_version": "50.0.0.0",
+    "options_ui": {
+        "page": "bg/options.html"
+    },
+    "permissions": ["file://*/*", "http://*/*", "https://*/*", "storage"],
+    "web_accessible_resources": [
+        "fg/css/frame.css",
+        "fg/img/play.png",
+        "fg/img/cloud.png",
+        "fg/img/plus.png",
+        "fg/js/frame.js"
+    ],
+    "content_security_policy": "script-src 'self' https://rawgit.com; object-src 'self'"
+}

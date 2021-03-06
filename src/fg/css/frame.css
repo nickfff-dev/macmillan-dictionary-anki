@@ -1,0 +1,82 @@
+.body{
+  background-color:#dcedc8;
+}
+
+.abkl-content {
+  font-family   : 'Open Sans', Helvetica, Arial, Sans-serif;
+  font-size     : 14px;
+  text-align    : left;
+  color         : #1d2129; 
+  border-radius : 3px;
+  /*background-color:#dcedc8;*/
+}
+
+/* section global style */
+.abkl-sect {
+  border            : 1px solid;   
+  border-color      : #e5e6e9 #dfe0e4 #d0d1d5; 
+  border-radius     : 0 5px 5px 0;
+  background-color  : rgba(255,255,255,0.95);   
+  margin            : 3px 0;
+  padding           : 5px;       
+  line-height       : 1.6em;
+  min-height        : 1.6em;
+  border-right-width: 6px;
+  border-left       : 2px dashed #dfe0e4; 
+  /*remove below 2 lines if you want flat style*/
+  /*border          : 0px solid;   */
+  /*box-shadow: 1px 1px 2px rgba(0,0,0,0.3), 1px 1px 3px rgba(0,0,0,0.5);*/
+}
+
+.abkl-word span,
+.abkl-defs span{
+  vertical-align:middle;
+}
+
+.abkl-word{
+  border-right-color:#1683ea;
+}
+.abkl-defs{
+  border-right-color:#7cb242;
+}
+.abkl-sent{
+  border-right-color:#e53935;
+}
+
+hr{
+  border        : 1px;
+  margin        : 5px 0;    
+  border-top    : 1px solid #d5d5d5; 
+}
+
+.abkl-word{
+  font-size     :1.2em;
+  font-weight   :bold;
+}
+
+.abkl-defs{
+  word-wrap     :break-word;
+}
+
+.abkl-sent{
+  font-size     :0.8em;
+}
+
+.abkl-createnote{
+  cursor        : pointer;
+  float         : right;
+  margin-right  : 3px;
+  vertical-align: middle;
+}
+
+/* Tag highlight style */
+.highlight{
+  /*font-weight       : bold;*/
+  font-size         : 0.9em;
+  border-radius     : 4px; 
+  color             : #fff; 
+  padding           : 1px 2px;
+  margin-right      : 3px;
+  text-decoration   : none;
+  text-align        : center;
+}
