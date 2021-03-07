@@ -1,5 +1,5 @@
 /* global api */
-class enen_Macmillan {
+class enen_Collins {
     constructor(options) {
         this.options = options;
         this.maxexample = 2;
@@ -48,13 +48,13 @@ class enen_Macmillan {
             return [];
         }
 
-        let dictionary = doc.querySelector('div.col-xs-12.col-sm-8.col-md-content-with-right.left-content');
+        let dictionary = doc.querySelector('.left-content');
         if (!dictionary) return notes; // return empty notes
 
-        let expression = T(dictionary.querySelector('span.BASE'));
-        let reading = T(dictionary.querySelector('span.PRON'));
+        let expression = T(dictionary.querySelector('h1.BASE'));
+        let reading = T(dictionary.querySelector('.PRON'));
 
-        let band = dictionary.querySelector('span.definition-count-value');
+        let band = dictionary.querySelector('.SENSE-NUM');
         let bandnum = band ? band.dataset.band : '';
         let extrainfo = bandnum ? `<span class="band">${'\u25CF'.repeat(Number(bandnum))}</span>` : '';
 
@@ -62,11 +62,11 @@ class enen_Macmillan {
         let audios = sound ? [sound.dataset.srcMp3] : [];
         // make definition segement
         let definitions = [];
-        let defblocks = dictionary.querySelectorAll('div.SENSE-BODY') || [];
+        let defblocks = dictionary.querySelectorAll('.no-grow') || [];
         for (const defblock of defblocks) {
-            let pos = T(defblock.querySelector('div.SENSE-NUM'));
+            let pos = T(defblock.querySelector('.SENSE-NUM'));
             pos = pos ? `<span class="pos">${pos}</span>` : '';
-            let eng_tran = T(defblock.querySelector('span.DEFINITION'));
+            let eng_tran = T(defblock.querySelector('.DEFINITION'));
             if (!eng_tran) continue;
             let definition = '';
             eng_tran = eng_tran.replace(RegExp(expression, 'gi'), '<b>$&</b>');
@@ -75,7 +75,7 @@ class enen_Macmillan {
             definition += `${pos}${tran}`;
 
             // make exmaple segement
-            let examps = defblock.querySelectorAll('p.EXAMPLE') || '';
+            let examps = defblock.querySelectorAll('.EXAMPLE') || '';
             if (examps.length > 0 && this.maxexample > 0) {
                 definition += '<ul class="sents">';
                 for (const [index, examp] of examps.entries()) {
